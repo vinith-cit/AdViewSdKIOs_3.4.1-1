@@ -188,16 +188,17 @@ Integrated iOS SDK includes the following contents:
   
   ```
 
-  3）Create AdInstlManager in the viewDidLoad function of the controller, use the Application Key acquired in step 1, just as the below codes show:
+3) Create AdViewView in the controller's viewDidLoad function and use the Application key obtained in step 1, as shown in the following code:
   
   ```
-  - (void)viewDidLoad {
-        [super viewDidLoad];
-        // Do any additional setup after loading the view.
-        self.view.backgroundColor =[UIColor blueColor];
-        self.adView = [AdViewView requestAdViewViewWithAppKey:@"SDK201416200410555y9p0pjcph5f5ue" WithDelegate:self];
-        [self.view addSubview:self.adView];
-  }
+ - (void)viewDidLoad {
+[super viewDidLoad];
+// Do any additional setup after loading the view. 
+self.view.backgroundColor =[UIColor blueColor]; 
+self.adView = [AdViewView
+requestAdViewViewWithAppKey:ADBANNERKEY WithDelegate:self]; 
+[self.view addSubview:self.adView];
+}
   
   ```
 
@@ -222,28 +223,30 @@ Integrated iOS SDK includes the following contents:
  
   
   ```
-  -(void)adInstlManager:(AdInstlManager*)manager didGetEvent:(InstlEventType)eType error:(NSError*)error
-  {
-   switch (eType) {
-      case InstlEventType_DidLoad:
-      break;
-      
-     case InstlEventType_FailLoadAd:
-     break;
-     
-     default:
-     break;
-        }
-   }
-   
- - (BOOL)adInstlTestMode
- {
-    return NO;
- }
-  
-- (BOOL)adInstlLogMode {
-    return YES;
- }
+	-(void)adInstlManager:(AdInstlManager*)manager didGetEvent: (InstlEventType)eType error:(NSError*)error
+	{
+	switch (eType) {
+	case InstlEventType_DidLoad:
+	break;
+
+	case InstlEventType_FailLoadAd:
+	break;
+
+	case InstlEventType_DidDismissAd:
+	break;
+	default:
+	break;
+	}
+	}
+
+
+	- (BOOL)adInstlTestMode {
+	return NO;
+
+	}
+	- (BOOL)adInstlLogMode { 
+	return YES;
+	}
   
   ```
   
@@ -252,12 +255,12 @@ Integrated iOS SDK includes the following contents:
   3）Create AdInstlManager in the viewDidLoad function of the controller, as the below codes show:
 
 ```
-  - (void)viewDidLoad
-  {
-      [super viewDidLoad];
-  self.adInstlManager=[AdInstlManager managerWithAdInstlKey:@" SDK
-  201416200410555y9p0pjcph5f5ue"WithDelegate:self];
-  }
+	- (void)viewDidLoad {
+	[super viewDidLoad]; 
+	self.adInstlManager=[AdInstlManager
+	managerWithAdInstlKey:ADINSTLKEY WithDelegate:self];
+
+	  }
   
 ```
 
@@ -266,12 +269,11 @@ Integrated iOS SDK includes the following contents:
   
 
 ```
- - (void)adInstlLoad:(id)sender
-  {
-      // Since interstitial ads have certain life cycle, so don' be too late to call (showAdInstlView:) after load, in case           the ads get invalid.
-      BOOL bRet = [self.adInstl loadAdInstlView:self];
-      
-   }
+	- (void)showAutoInstl
+	{
+	// Because of the screen has a certain survival cycle, after load, please do not wait too long to call (showAdInstlView :) method, so as not to fail
+	    [self.adInstlManager loadAdInstlView:self];
+	}
    
 ```
 
@@ -308,7 +310,7 @@ Integrated iOS SDK includes the following contents:
   (BOOL)application:(UIApplication*)applicationdidFinishLaunchingWithOptions:(NSDictionary *)launchOptions
   {
           self.manager=[AdSpreadScreenManager managerWithAdSpreadScreen
-  Key:@"SDK20141023100445zhgsncda3wciah6" WithDelegate:self];
+  Key:ADSPREADSCREENKEY WithDelegate:self];
         [self.manager requestAdSpreadScreenView:self.window.rootViewController];
         return YES;
    }
@@ -519,7 +521,7 @@ self.nativeManager=[AdNativeManager managerWithAdNativeKey:NATIVEKEY WithDelegat
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.videoManger = [AdVideoManager managerWithAdVideoKey:NATIVEKEY WithDelegate:self]; 
+     self.videoManger = [AdVideoManager managerWithAdVideoKey:ADVIDEOKEY WithDelegate:self]; 
 }
 
 ```
