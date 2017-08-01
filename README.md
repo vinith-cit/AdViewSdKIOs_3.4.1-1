@@ -645,6 +645,8 @@ self.nativeManager=[AdNativeManager managerWithAdNativeKey:NATIVEKEY WithDelegat
     -->WebKit.framework
     
     -->libxml2.tbd
+    
+    -->libz.1.2.5.tbd
 
 **Note:**
 
