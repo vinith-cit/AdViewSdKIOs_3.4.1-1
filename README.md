@@ -144,11 +144,12 @@ Integrated iOS SDK includes the following contents:
   ```
 
   \\The key of the requested ad must within the configuration of the registration. 
-      AdViewConfigStore *cfg = [AdViewConfigStore sharedStore];
-      [cfg requestConfig:@[@"SDK20111022530129m85is43b70r4iyc",@"SDK20150903090237sjtskjva8ppy91r"]           sdkType:AdViewSDKType_Banner];
-      [cfg requestConfig:@[@"SDK20141430020730kbmya6prn5qg1t0",@"SDK20150903090237sjtskjva8ppy91r"] sdkType:AdViewSDKType_Instl];
-      [cfg requestConfig:@[@"SDK20151311010501u7hth0gexjm9gym",@"SDK20150903090237sjtskjva8ppy91r"] sdkType:AdViewSDKType_SpreadScreen];
-      
+ AdViewConfigStore *cfg = [AdViewConfigStore sharedStore];
+    [cfg requestConfig:@[ADBANNERKEY] sdkType:AdViewSDKType_Banner];
+    [cfg requestConfig:@[ADINSTLKEY] sdkType:AdViewSDKType_Instl];
+    [cfg requestConfig:@[ADSPREADSCREENKEY] sdkType:AdViewSDKType_SpreadScreen];
+    [cfg requestConfig:@[ADNATIVEKEY] sdkType:AdViewSDKType_Native];
+    [cfg requestConfig:@[ADVIDEOKEY] sdkType:AdViewSDKType_Video];
    ```   
 
 ## III.Create banner ads
