@@ -855,11 +855,13 @@ Region optimization fuction refers to the phones at home show the domestic confi
 
 ## XI.Configurate files offline
 
-![configure](https://raw.githubusercontent.com/vinith-cit/images-for-ios-SDK/master/11.1.png)
-
 1) download offline configurated files
 
-2) put themt into project catagorie
+
+![configure](https://raw.githubusercontent.com/vinith-cit/images-for-ios-SDK/master/11.1.png)
+
+
+2) put them into project catagorie
 ![Project](https://raw.githubusercontent.com/vinith-cit/images-for-ios-SDK/master/11.2.png)
 
 
